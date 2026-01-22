@@ -1,0 +1,53 @@
+SQL NOTES 
+
+General Best Practices:
+
+Never use * with SELECT queries in real applications. (reduce performance)
+Always use column aliases for better readability.
+Use table aliases to simplify queries and avoid ambiguity.
+
+
+Commenting in SQL Server : 
+-- is used for single-line comments.
+
+Shortcut to comment selected lines: Ctrl + K, Ctrl + C
+Shortcut to uncomment selected lines: Ctrl + K, Ctrl + U
+
+SSMS Output Shortcuts
+Ctrl + D → Results in Grid (Table format)
+Ctrl + T → Results in Text format
+Ctrl + R → Show/Hide the Results panel
+Alt + f1 -> complete detail about table. If this doesn't work , do this  => sp_help '[Person].[EmailAddress]' 
+
+CROSS JOIN Concept
+CROSS JOIN creates a Cartesian Product.
+Each row from one table combines with every row of another table.
+Should be used carefully due to performance impact.
+
+DUAL Table (Conceptual Note)
+The DUAL table is an Oracle-specific dummy table.
+Used when a query requires a FROM clause but no actual table data is needed.
+Commonly used to evaluate expressions or call functions.
+
+Operators Meaning
+= → Equal to
+<> → Not equal to
+NOT → Negation
+IN → Multiple values comparison
+BETWEEN → Range-based filtering
+
+Stored Procedure syntax:
+alter procedure myPractice
+--optional or parameters
+@OrderId int 
+as begin
+select * from Orders where OrderId = @OrderId
+end;
+
+
+go -- Go sepearates the queries 
+exec myPractice 5001
+
+
+How to generate query  for insert using GUI : 
+right click > design queries in editor > select table > select columns > then below on the table > right click > change type > insert values> then enter value and ok.
